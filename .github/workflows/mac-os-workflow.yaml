@@ -1,0 +1,12 @@
+name: MacOS Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  macos-teste:
+    runs-on: macos-latest
+
+    steps:
+      - name: Exibindo mensagem
+        run: echo "Olá, mundo! Este é um workflow do GitHub Actions rodando no macOS."
