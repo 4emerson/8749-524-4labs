@@ -10,4 +10,7 @@ jobs:
       - name: Exibir Variáveis Globais do Github
         run: |
           echo "Repositório: ${{ github.repository }}"
-          echo "Job ID: ${{ github.run_id }}"
+          echo "Job ID: ${{ github.job }}"
+          echo "Evento: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Ator: ${{ github.actor }}"
