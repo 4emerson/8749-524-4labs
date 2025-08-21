@@ -1,0 +1,13 @@
+name: Schuduler - lembrete
+
+on:
+  schedule:
+    - cron: '55 17 * * *'
+  
+jobs:
+  lembrete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar lembrete
+        run: |
+          echo "Lembrete: Não esqueça de revisar suas tarefas diárias!"
