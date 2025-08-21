@@ -1,0 +1,17 @@
+name: Merge to Main Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+
+
+jobs:
+  merge_to_main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Execução pos merge 
+        run: |
+          echo "Executando tarefas pós-merge no branch main"
