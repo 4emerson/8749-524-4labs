@@ -14,4 +14,4 @@ jobs:
       
       - name: Execução pos merge 
         run: |
-          echo "Executando tarefas pós-merge no branch main"
+          echo "Executando após push na branch dev"
