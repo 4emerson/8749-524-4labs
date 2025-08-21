@@ -1,4 +1,4 @@
-name: Variáveis no Workflow
+name: Variáveis Global no Workflow
 
 on:
   workflow_dispatch:
