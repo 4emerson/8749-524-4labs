@@ -2,7 +2,7 @@ name: Schuduler - lembrete
 
 on:
   schedule:
-    - cron: '55 17 * * *'
+    - cron: 'TZ=America/Sao_Paulo 03 15 * * *'
   
 jobs:
   lembrete:
@@ -11,3 +11,5 @@ jobs:
       - name: Enviar lembrete
         run: |
           echo "Lembrete: Não esqueça de revisar suas tarefas diárias!"
+          TZ=America/Sao_Paulo
+          echo "Horário atual: $(date)"
