@@ -2,14 +2,14 @@ name: Schuduler - lembrete
 
 on:
   schedule:
-    - cron: 'TZ=America/Sao_Paulo 03 15 * * *'
+    - cron: '06 15 * * *'
   
 jobs:
-  lembrete:
+  schedule:
+    name: 📅 Schedule
     runs-on: ubuntu-latest
     steps:
-      - name: Enviar lembrete
-        run: |
-          echo "Lembrete: Não esqueça de revisar suas tarefas diárias!"
-          TZ=America/Sao_Paulo
-          echo "Horário atual: $(date)"
+      - uses: austenstone/schedule@v1.3
+        with:
+          timezone: 'America/Sao_Paulo'
+          message: 'Lembrete: Verifique as tarefas pendentes e atualize o status.'
