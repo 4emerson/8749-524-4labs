@@ -1,0 +1,13 @@
+name: Variáveis Global do Github
+
+on:
+  workflow_dispatch:
+
+jobs:
+  vars_global_github:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exibir Variáveis Globais do Github
+        run: |
+          echo "Repositório: ${{ github.repository }}"
+          echo "Job ID: ${{ github.run_id }}"
