@@ -1,0 +1,12 @@
+name: Windows Workflow 
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  teste-windows:
+    runs-on: windows-latest
+    steps:
+      - name: testando comando power shell
+        run: |
+          Write-Output "Executando comando PowerShell no Windows"
