@@ -17,3 +17,13 @@ jobs:
           echo "Ambiente: $Ambiente"
           echo "Versão: $Versao"
           echo "$SAUDACAO"
+
+  teste_vars:
+    runs-on: ubuntu-latest
+    needs: vars_workflow
+    steps:
+      - name: Teste de Variáveis
+        run: |
+          echo "Ambiente: $Ambiente"
+          echo "Versão: $Versao"
+          echo "$SAUDACAO"
