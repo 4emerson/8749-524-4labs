@@ -15,15 +15,15 @@ jobs:
        
        
        - name: Login DockerHub
-         run: echo "${{ secret.DOCKER_HUB_PASSWORD }}" | docker login -u ${{ secret.DOCKER_HUB_USER }} --password-stdin
+         run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
 
         
        - name: Build imagem
          run: | 
-           docker build -t ${{ var.DOCKER_HUB_REPO }}/${{ var.var.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}} -f mariohtml5/Dockerfile mariohtml5
-           docker tag ${{ var.DOCKER_HUB_REPO }}/${{ var.var.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}} ${{ var.DOCKER_HUB_REPO }}/${{ var.var.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
+           docker build -t ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}} -f mariohtml5/Dockerfile mariohtml5
+           docker tag ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}} ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
 
        - name: Push da imagem
          run: |
-           docker push ${{ var.DOCKER_HUB_REPO }}/${{ var.var.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
-           docker push ${{ var.DOCKER_HUB_REPO }}/${{ var.var.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
+           docker push ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
+           docker push ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
