@@ -20,10 +20,9 @@ jobs:
         
        - name: Build imagem
          run: | 
-           docker build -t ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}} -f mariohtml5/Dockerfile mariohtml5
-           docker tag ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}} ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
-
+           docker build -t ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_number}} -f mariohtml5/Dockerfile mariohtml5
+           docker tag ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_number }} ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:latest
        - name: Push da imagem
          run: |
-           docker push ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
-           docker push ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_id}}
+           docker push ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:0.${{ github.run_number}}
+           docker push ${{ vars.DOCKER_HUB_REPO }}/${{ vars.DOCKER_HUB_IMAGE }}:latest
