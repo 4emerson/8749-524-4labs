@@ -20,6 +20,7 @@ jobs:
 
   terceiro-step:
     runs-on: ubuntu-latest
+    needs: [segundo-step]
     steps:
       - name: Primeiro Step - Exibir Mensagem
         run: sleep 10 && echo "Essa é uma execução do terceiro step do Actions"
@@ -27,6 +28,7 @@ jobs:
 
   quarto-step:
     runs-on: ubuntu-latest
+    needs: [terceiro-step]
     steps:
       - name: Primeiro Step - Exibir Mensagem
         run: sleep 10 && echo "Essa é uma execução do quarto step do Actions"
