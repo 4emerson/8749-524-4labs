@@ -39,3 +39,23 @@ jobs:
         run: |
           docker run --rm -v course-catalog:/course-catalog \
             course-catalog:teste sh -c "nosetests --with-xunit --with-coverage --cover-package=project test_users.py"
+
+  trivy-scan:
+    needs: [unit-test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      
+      - name: Build para trivy-scan
+        run: docker build -t course-catalog:teste -f course-catalog/Dockerfile course-catalog
+
+      - name: Trivy Scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: course-catalog:teste
+          format: 'table'
+          # exit-code: '1'
+          # severity: 'CRITICAL,HIGH'
