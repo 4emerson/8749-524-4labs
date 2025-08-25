@@ -28,7 +28,3 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL_MARIO }}
         with:
           check-quality-gate: true
-          projectBaseDir: ${{ github.workspace }}/mariohtml5
-          args: >
-             -Dsonar.sources=.
-             -Dsonar.projectKey=mariohtml5
