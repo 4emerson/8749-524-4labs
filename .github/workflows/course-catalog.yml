@@ -1,0 +1,41 @@
+name: Pipeline Course Catalog CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sonar-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - uses: sonarSource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          projectBaseDir: ${{ github.workspace }}/course-catalog
+          args: >
+             -Dsonar.sources=.
+             -Dsonar.projectKey=couse-catalog
+
+  unit-test:
+    runs-on: ubuntu-latest
+    needs: [sonar-scan]
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      
+      - name: Docker build Teste
+        run: docker build -t course-catalog:teste -f course-catalog/Dockerfile course-catalog
+
+      - name: Executando Unit Test
+        run: |
+          docker run --rm -v course-catalog:/course-catalog \
+            course-catalog:teste sh -c "nosetests --with-xunit --with-coverage --cover-package=project test_users.py"
