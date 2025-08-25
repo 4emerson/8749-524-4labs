@@ -13,10 +13,12 @@ jobs:
           fetch-depth: 0
       
       - uses: sonarSource/sonarqube-scan-action@master
+        timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_MARIO }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL_MARIO }}
         with:
+          check-quality-gate: true
           projectBaseDir: ${{ github.workspace }}/mariohtml5
           args: >
              -Dsonar.sources=.
