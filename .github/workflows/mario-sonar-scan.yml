@@ -15,7 +15,7 @@ jobs:
       - uses: sonarSource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_MARIO }}
-          SONAR_HOST_URL: ${{ SONAR_HOST_URL_MARIO }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL_MARIO }}
         with:
           projectBaseDir: ${{ github.workspace }}/mariohtml5
           args: >
