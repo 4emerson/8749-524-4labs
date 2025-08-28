@@ -90,6 +90,8 @@ jobs:
   homolog-deploy:
     runs-on: ubuntu-latest
     needs: build_push
+    environment:
+      name: homolog
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
