@@ -1,4 +1,4 @@
-name: K8s - Teste de conexão
+name: K8s - Deploy Supermario
 
 on:
   workflow_dispatch:
