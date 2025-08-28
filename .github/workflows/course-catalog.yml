@@ -22,7 +22,7 @@ jobs:
           projectBaseDir: ${{ github.workspace }}/course-catalog
           args: >
              -Dsonar.sources=.
-             -Dsonar.projectKey=course-catalog
+             -Dsonar.projectKey=couse-catalog
 
   unit-test:
     runs-on: ubuntu-latest
