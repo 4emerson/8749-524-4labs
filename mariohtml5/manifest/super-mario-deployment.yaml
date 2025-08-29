@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: supermario
-        image: pengbai/docker-supermario
+        image: 34.29.27.206:8082/supermario-nexus:0.2
         ports:
         - containerPort: 8080
