@@ -70,6 +70,6 @@ jobs:
           git commit -m "Atualiza imagem do Super Mario para 0.${{ github.run_number}}"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
