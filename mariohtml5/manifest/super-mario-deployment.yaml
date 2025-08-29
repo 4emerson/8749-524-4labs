@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: supermario
-        image: 34.29.27.206:8082/supermario-nexus:0.2
+        image: supermario:latest  
         ports:
         - containerPort: 8080
