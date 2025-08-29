@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: supermario
-        image: supermario:latest  
+        image: emerson4linux/8729-mario:0.5 
         ports:
         - containerPort: 8080
